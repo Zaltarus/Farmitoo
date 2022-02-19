@@ -2,11 +2,19 @@
 @import "helpers/helpers";
 @import "global/global";
 
-
 // ATOMS
 @import "atoms/button";
+@import "atoms/text";
+
+// Components
+@import "components/product-little";
+@import "components/price";
 
 // Organisms
 @import "organisms/home";
 @import "organisms/header";
 @import "organisms/footer";
+
+// Pages
+@import "pages/tunnel/main";
+@import "pages/tunnel/basket";

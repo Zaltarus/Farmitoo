@@ -32,6 +32,10 @@ $button-styles: (
         padding: 8px 10px;
     }
 
+    &--big {
+        padding: 16px 20px;
+    }
+
     @each $style-name, $lengths in $button-styles {
         $background: map-get($lengths, background);
         $color: map-get($lengths, color);
