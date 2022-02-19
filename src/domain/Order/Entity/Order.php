@@ -9,5 +9,5 @@ class Order
     /**
      * @var array
      */
-    protected $items;
+    protected array $items;
 }
