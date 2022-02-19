@@ -1,0 +1,74 @@
+%button {
+    cursor: pointer;
+    padding: 12px 15px;
+    font-size: $size-default;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    line-height: 17px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    transition: color .3s ease, background-color .3s ease, opacity .3s ease;
+}
+
+$button-styles: (
+    primary: (
+        background: $light-blue,
+        color: $white,
+        background-hover: $dark-blue
+    ),
+);
+
+.button {
+    @extend %button;
+
+    &--rounded {
+        border-radius: $border-radius-base;
+    }
+
+    &--thin {
+        padding: 8px 10px;
+    }
+
+    @each $style-name, $lengths in $button-styles {
+        $background: map-get($lengths, background);
+        $color: map-get($lengths, color);
+        $background-hover: map-get($lengths, background-hover);
+        $color-hover: map-get($lengths, color-hover);
+
+        &--#{$style-name} {
+            background: $background;
+            color: $color;
+
+            @if $background-hover {
+                &:hover {
+                    background: $background-hover;
+                    @if $color-hover {
+                        color: $color-hover;
+                    }
+                }
+            }
+
+            /* stylelint-disable-next-line selector-max-attribute */
+            &.disabled,
+            &[disabled] {
+                cursor: not-allowed;
+                opacity: .3;
+                pointer-events: none;
+            }
+        }
+    }
+
+    &--disabled,
+    &.disabled {
+        opacity: .5;
+        pointer-events: none;
+
+        &:hover {
+            background-color: initial;
+            color: initial;
+        }
+    }
+}
