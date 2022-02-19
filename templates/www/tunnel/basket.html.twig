@@ -1,0 +1,13 @@
+{% extends 'www/base.html.twig' %}
+
+{% block content %}
+    <div class="page-content page-tunnel page-tunnel-basket">
+        <div class="basket-container-products">
+            <div class="title title--medium title--primary">
+                Mon panier
+            </div>
+            {% include 'www/components/tunnel/basket-list-product.html.twig' with {'order': order} %}
+        </div>
+        {% include 'www/components/tunnel/tunnel-total.html.twig' with {'order': order} %}
+    </div>
+{% endblock %}

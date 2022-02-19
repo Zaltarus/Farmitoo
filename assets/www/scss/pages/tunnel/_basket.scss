@@ -1,0 +1,16 @@
+.basket-container-products {
+    width: 69%;
+
+    .title {
+        &.title--medium {
+            margin-bottom: 0.5em;
+        }
+    }
+
+    .product-little {
+        display: flex;
+        &:nth-last-child(1) {
+            margin-bottom: 0;
+        }
+    }
+}

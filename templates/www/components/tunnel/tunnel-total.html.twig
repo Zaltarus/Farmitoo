@@ -1,0 +1,40 @@
+<div class="tunnel-total">
+    <div class="title title--primary title--medium">
+        Votre commande
+    </div>
+    <div class="total">
+        <div class="total-row">
+            <label class="total-text">
+                Sous total
+            </label>
+            <span class="total-amount"></span>
+        </div>
+        {% if order.promotion is not null%}
+            <div class="total-row">
+                <label class="total-infos-text">
+                    Promotion
+                </label>
+                <span class="total-amount">
+
+                </span>
+            </div>
+        {% endif %}
+        <div class="total-row">
+            <label class="total-infos-text">
+                Livraison
+            </label>
+            <span class="total-amount">
+
+            </span>
+        </div>
+        <div class="total-final total-row">
+            <label class="total-infos-text">
+                Livraison
+            </label>
+            <span class="total-amount">
+
+            </span>
+        </div>
+        <button class="button button--primary button--big">Passer commande</button>
+    </div>
+</div>

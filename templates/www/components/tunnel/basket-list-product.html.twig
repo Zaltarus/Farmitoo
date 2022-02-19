@@ -1,0 +1,5 @@
+<div class="basket-products">
+    {% for item in order.items %}
+        {% include 'www/components/product/product-little.html.twig' with {'product': item.product, 'quantity': item.quantity, 'inBasket': true} %}
+    {% endfor %}
+</div>
