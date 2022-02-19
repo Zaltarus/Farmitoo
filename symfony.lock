@@ -115,6 +115,9 @@
     "sebastian/version": {
         "version": "3.0.2"
     },
+    "symfony/asset": {
+        "version": "v5.2.12"
+    },
     "symfony/browser-kit": {
         "version": "v5.2.7"
     },
