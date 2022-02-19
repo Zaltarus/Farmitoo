@@ -1,0 +1,38 @@
+$title-sizes: (
+    big: (
+        f: $size-2,
+        l: 1.1,
+    ),
+    medium: (
+        f: $size-4,
+        l: 1.25,
+    ),
+    small: (
+        f: $size-9,
+        l: 1.25,
+    ),
+);
+
+.title {
+    &--primary {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2.72px;
+    }
+
+    &--secondary {
+        font-weight: 700;
+        line-height: 15px;
+        text-transform: uppercase;
+    }
+
+    @each $size, $lengths in $title-sizes {
+        $font: map-get($lengths, f);
+        $line: map-get($lengths, l);
+
+        &--#{$size} {
+            @include font-size($font, $line);
+        }
+    }
+
+}
