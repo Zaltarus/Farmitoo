@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\domain\Product\Entity;
+
+use App\domain\Brand\Entity\Brand;
 
 class Product
 {
@@ -8,19 +10,19 @@ class Product
 
     private string $title;
 
-    private int $price;
+    private int $priceHT;
 
     private Brand $brand;
 
     public function __construct(
         int $id,
         string $title,
-        int $price,
+        int $priceHT,
         Brand $brand
     ) {
         $this->id = $id;
         $this->title = $title;
-        $this->price = $price;
+        $this->priceHT = $priceHT;
         $this->brand = $brand;
     }
 
@@ -34,9 +36,9 @@ class Product
         return $this->title;
     }
 
-    public function getPrice(): int
+    public function getPriceHT(): int
     {
-        return $this->price;
+        return $this->priceHT;
     }
 
     public function getBrand(): Brand

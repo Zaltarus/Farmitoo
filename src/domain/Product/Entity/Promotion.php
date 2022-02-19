@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Entity;
+namespace App\domain\Product\Entity;
 
 
 class Promotion
