@@ -10,9 +10,28 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            App:
+            Brand:
                 is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+                type: xml
+                dir: '%kernel.project_dir%/src/domain/Brand/Entity'
+                prefix: 'domain/Brand/Entity'
+            Order:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/domain/Order/Entity'
+                prefix: 'domain/Order/Entity'
+            Product:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/domain/Product/Entity'
+                prefix: 'domain/Product/Entity'
+            Tax:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/domain/Tax/Entity'
+                prefix: 'domain/Tax/Entity'
+            User:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/domain/User/Entity'
+                prefix: 'domain/User/Entity'
