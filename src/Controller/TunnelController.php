@@ -131,12 +131,16 @@ class TunnelController extends AbstractController
     {
         $this->cleanBasket();
 
+        $quantity1 = rand(1,5);
+        $quantity2 = rand(1,5);
+        $quantity3 = rand(1,5);
+
         $product1 = $this->productRepository->find(1);
         $product2 = $this->productRepository->find(2);
         $product3 = $this->productRepository->find(3);
-        $this->addItemToBasket($product1, 2);
-        $this->addItemToBasket($product2, 4);
-        $this->addItemToBasket($product3, 1);
+        $this->addItemToBasket($product1, $quantity1);
+        $this->addItemToBasket($product2, $quantity2);
+        $this->addItemToBasket($product3, $quantity3);
 
         return $this->redirectToRoute('www_basket');
     }
