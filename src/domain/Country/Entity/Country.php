@@ -2,21 +2,16 @@
 
 namespace App\domain\Country\Entity;
 
-use App\domain\Tax\Entity\Tax;
-
 class Country
 {
     private int $id;
 
     private string $name;
 
-    private Tax $tax;
-
-    public function __construct(int $id, string $name, Tax $tax)
+    public function __construct(int $id, string $name)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->tax = $tax;
     }
 
     public function getId(): int
@@ -27,10 +22,5 @@ class Country
     public function getName(): string
     {
         return $this->name;
-    }
-
-    public function getTax(): Tax
-    {
-        return $this->tax;
     }
 }

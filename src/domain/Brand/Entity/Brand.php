@@ -2,7 +2,9 @@
 
 namespace App\domain\Brand\Entity;
 
+use App\domain\Shipping\Entity\Shipping;
 use App\domain\Tax\Entity\Tax;
+use Doctrine\Common\Collections\Collection;
 
 class Brand
 {
@@ -12,11 +14,17 @@ class Brand
 
     private Tax $tax;
 
-    public function __construct(int $id, string $name, Tax $tax)
+    /**
+     * @var Collection<int, Shipping>
+     */
+    private Collection $shipping;
+
+    public function __construct(int $id, string $name, Tax $tax, Collection $shipping)
     {
         $this->id = $id;
         $this->name = $name;
         $this->tax = $tax;
+        $this->shipping = $shipping;
     }
 
     public function getId(): int
@@ -32,5 +40,10 @@ class Brand
     public function getTax(): Tax
     {
         return $this->tax;
+    }
+
+    public function getShipping(): Collection
+    {
+        return $this->shipping;
     }
 }

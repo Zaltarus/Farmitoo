@@ -10,6 +10,8 @@ use App\domain\Order\Normalizer\OrderNormalizer;
 use App\domain\Product\Entity\Product;
 use App\domain\Product\Repository\ProductRepository;
 use App\domain\Promotion\Manager\PromotionResolver;
+use App\domain\Shipping\Manager\ShippingVoter;
+use App\domain\Tax\Manager\TaxResolver;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -33,6 +35,10 @@ class TunnelController extends AbstractController
 
     private OrderNormalizer $orderNormalizer;
 
+    private ShippingVoter $shippingVoter;
+
+    private TaxResolver $taxResolver;
+
     private RequestStack $requestStack;
 
     public function __construct(
@@ -41,6 +47,8 @@ class TunnelController extends AbstractController
         OrderFactory $orderFactory,
         PromotionResolver $promotionResolver,
         OrderNormalizer $orderNormalizer,
+        ShippingVoter $shippingVoter,
+        TaxResolver $taxResolver,
         RequestStack $requestStack
     ) {
         $this->brandRepository = $brandRepository;
@@ -48,6 +56,8 @@ class TunnelController extends AbstractController
         $this->orderFactory = $orderFactory;
         $this->promotionResolver = $promotionResolver;
         $this->orderNormalizer = $orderNormalizer;
+        $this->shippingVoter = $shippingVoter;
+        $this->taxResolver = $taxResolver;
         $this->requestStack = $requestStack;
     }
 
@@ -99,10 +109,17 @@ class TunnelController extends AbstractController
 
         $order = $this->promotionResolver->applyPromotionToOrder($order);
 
-        $order = $this->orderNormalizer->normalize($order);
+        $shippingHT = $this->shippingVoter->getTotalShippingByOrder($order);
+        $shippingTTC = $this->taxResolver->calculatePriceTTC($shippingHT);
 
+        $order = $this->orderNormalizer->normalize($order);
         return [
             'order' => $order,
+            'shipping' =>  [
+                'totalHT' => $shippingHT,
+                'totalTTC' => $shippingTTC,
+                'TVA' => $shippingTTC - $shippingHT,
+            ]
         ];
     }
 

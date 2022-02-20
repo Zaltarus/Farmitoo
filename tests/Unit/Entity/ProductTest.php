@@ -4,7 +4,7 @@
 namespace App\Tests\Unit\Entity;
 
 
-use App\Entity\Product;
+use App\domain\Product\Entity\Product;
 use PHPUnit\Framework\TestCase;
 
 class ProductTest extends TestCase
