@@ -1,0 +1,5 @@
+{% macro one(price, currency, className, tax) %}
+    <span class="price {{ className }}">
+        {{ getIntMoney(price) }} <sup>{{ getCentMoney(price) }}</sup> {{ currency }} {{ tax }}
+    </span>
+{% endmacro %}

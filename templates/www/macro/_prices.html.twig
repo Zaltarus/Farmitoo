@@ -1,15 +1,9 @@
 {% macro full(priceHT, priceTTC, priceHTCrossed, currency) %}
+    {% import 'www/macro/_price.html.twig' as priceRenderer %}
     <div class="pricing">
-        <span class="price">
-            {{ getIntMoney(priceHT) }} <sup>{{ getCentMoney(priceHT) }}</sup> {{ currency }} HT
-        </span>
+        {{ priceRenderer.one(priceHT, currency, '', 'HT') }}
         {% if priceHTCrossed is not null %}
-            <span class="price price-crossed">
-                {{ getIntMoney(priceHTCrossed) }} <sup>{{ getCentMoney(priceHTCrossed) }}</sup> {{ currency }} HT
-            </span>
+            {{ priceRenderer.one(priceHTCrossed, currency, 'price-crossed', 'HT') }}
         {% endif %}
-        <span class="price price-ttc">
-            {{ getIntMoney(priceTTC) }} <sup>{{ getCentMoney(priceTTC) }}</sup> {{ currency }} TTC
-        </span>
     </div>
 {% endmacro %}

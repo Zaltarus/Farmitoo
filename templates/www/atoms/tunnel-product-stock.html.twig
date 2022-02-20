@@ -1,5 +1,11 @@
-<div class="tunnel-product-stock">
-    <span data-stock="decrement">-</span>
-    <span class="tunnel-product-stock-quantity">{{ quantity }}</span>
-    <span data-stock="increment">+</span>
+<div class="tunnel-product-stock-container">
+    <div class="tunnel-product-stock">
+        {% set disabled = '' %}
+        {% if quantity <= 1 %}
+            {% set disabled = 'disabled' %}
+        {% endif %}
+        <div class="{{ disabled }}" data-id="{{ product.id }}" data-action="decrease">-</div>
+        <div data-id="{{ product.id }}" data-quantity="{{ quantity }}" class="tunnel-product-stock-quantity">{{ quantity }}</div>
+        <div data-id="{{ product.id }}" data-action="increase">+</div>
+    </div>
 </div>

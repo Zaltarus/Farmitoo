@@ -1,7 +1,7 @@
 html {
     height: 100%;
 }
-div {
+div,span,p {
     box-sizing: border-box;
 }
 body {
@@ -19,16 +19,15 @@ body {
 .page-content-container {
     width: 80%;
     flex: 1 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: $light-black;
     @include media-breakpoint-down(lg) {
         width: 100%;
     }
 
     .page-content {
         @include media-breakpoint-down(lg) {
-            padding: 0 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
     }
 }

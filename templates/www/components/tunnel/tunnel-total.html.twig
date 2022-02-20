@@ -1,40 +1,72 @@
-<div class="tunnel-total">
-    <div class="title title--primary title--medium">
-        Votre commande
-    </div>
-    <div class="total">
-        <div class="total-row">
-            <label class="total-text">
-                Sous total
-            </label>
-            <span class="total-amount"></span>
-        </div>
-        {% if order.promotion is not null%}
-            <div class="total-row">
-                <label class="total-infos-text">
-                    Promotion
-                </label>
-                <span class="total-amount">
+{% import 'www/macro/_price.html.twig' as priceRenderer %}
 
+<div class="tunnel-total-container">
+    <div class="tunnel-total">
+        <div class="title title--secondary title--small">
+            Votre commande
+        </div>
+        <div class="total">
+            <div class="total-row">
+                <span class="total-text">
+                    <span class="b--strong">Sous total HT</span> avant remise
+                </span>
+                <span class="pricing total-amount">
+                    {{ priceRenderer.one(order.total.totalHTBeforeDiscount, '€', '', '') }}
                 </span>
             </div>
-        {% endif %}
-        <div class="total-row">
-            <label class="total-infos-text">
-                Livraison
-            </label>
-            <span class="total-amount">
-
-            </span>
+            {% if order.discount is not null%}
+                <div class="total-row">
+                    <span class="total-text">
+                        Remise
+                    </span>
+                    <span class="pricing total-amount total-amount-discount">
+                        - {{ priceRenderer.one(order.discount.totalHT, '€', '', '') }}
+                    </span>
+                </div>
+            {% endif %}
+            <div class="total-row">
+                <span class="total-text">
+                    <span class="b--strong">Sous total HT</span> après remise
+                </span>
+                <span class="pricing total-amount">
+                    {{ priceRenderer.one(order.total.totalHT, '€', '', '') }}
+                </span>
+            </div>
+            <div class="total-row total-delivery">
+                <span class="total-text">
+                    Frais de port HT
+                </span>
+                <span class="pricing total-amount">
+                    {{ priceRenderer.one(shipping.totalHT, '€', '', '') }}
+                </span>
+            </div>
+            <div class="total-final">
+                <div class="total-row">
+                    <span class="total-text">
+                        Total HT
+                    </span>
+                    <span class="pricing total-amount">
+                        {{ priceRenderer.one(order.total.totalHT + shipping.totalHT, '€', '', '') }}
+                    </span>
+                </div>
+                <div class="total-row">
+                    <span class="total-text">
+                        TVA
+                    </span>
+                    <span class="pricing total-amount">
+                        {{ priceRenderer.one(order.total.TVA + shipping.TVA, '€', '', '') }}
+                    </span>
+                </div>
+                <div class="total-row total-row-final">
+                    <span class="total-text b--strong">
+                        Total TTC
+                    </span>
+                    <span class="pricing total-amount">
+                        {{ priceRenderer.one(order.total.totalTTC + shipping.totalTTC, '€', '', '') }}
+                    </span>
+                </div>
+            </div>
+            <button class="button button--primary button--big">Passer commande</button>
         </div>
-        <div class="total-final total-row">
-            <label class="total-infos-text">
-                Livraison
-            </label>
-            <span class="total-amount">
-
-            </span>
-        </div>
-        <button class="button button--primary button--big">Passer commande</button>
     </div>
 </div>

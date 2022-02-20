@@ -8,9 +8,13 @@ $title-sizes: (
         l: 1.25,
     ),
     small: (
-        f: $size-9,
+        f: $size-6,
         l: 1.25,
     ),
+    smallest: (
+        f: $size-9,
+        l: 1
+    )
 );
 
 .title {
@@ -34,5 +38,13 @@ $title-sizes: (
             @include font-size($font, $line);
         }
     }
+}
 
+.b {
+    &--light {
+        font-weight: 300;
+    }
+    &--strong {
+        font-weight: 800;
+    }
 }
