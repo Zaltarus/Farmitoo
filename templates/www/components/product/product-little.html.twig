@@ -1,0 +1,18 @@
+
+{% set inBasket = inBasket|default(false) %}
+{% import 'www/macro/_prices.html.twig' as pricesRenderer %}
+
+<div class="product-little">
+    <div class="image">
+        <img src="/public/build/images/product.jpg" alt="{{ product.title }}">
+    </div>
+    <div class="infos">
+        <div class="title title--smallest">
+            {{ product.title }}
+        </div>
+        {{ pricesRenderer.full(product.priceHT, product.priceTTC, product.priceCrossed, '€') }}
+    </div>
+    {% if inBasket %}
+        {% include 'www/atoms/tunnel-product-stock.html.twig' with {'product': product, 'quantity': quantity} %}
+    {% endif %}
+</div>

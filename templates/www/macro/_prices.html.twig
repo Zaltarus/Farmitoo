@@ -1,0 +1,9 @@
+{% macro full(priceHT, priceTTC, priceHTCrossed, currency) %}
+    {% import 'www/macro/_price.html.twig' as priceRenderer %}
+    <div class="pricing">
+        {{ priceRenderer.one(priceHT, currency, '', 'HT') }}
+        {% if priceHTCrossed is not null %}
+            {{ priceRenderer.one(priceHTCrossed, currency, 'price-crossed', 'HT') }}
+        {% endif %}
+    </div>
+{% endmacro %}

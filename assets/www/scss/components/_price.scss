@@ -1,0 +1,19 @@
+.pricing {
+    font-size: $size-10;
+    sup {
+        font-size: $size-14;
+    }
+    .price {
+        margin-right: 0.2em;
+        font-weight: 600;
+        color: $light-blue;
+    }
+    .price-crossed {
+        font-size: $size-11;
+        text-decoration: line-through;
+        color: $light-grey;
+    }
+    .price-ttc {
+        margin-left: 2em;
+    }
+}

@@ -1,0 +1,29 @@
+<?php
+
+
+namespace App\domain\User\Entity;
+
+class User
+{
+    private int $id;
+
+    private string $email;
+
+    public function __construct(int $id, string $email)
+    {
+        $this->id = $id;
+        $this->email = $email;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+
+}

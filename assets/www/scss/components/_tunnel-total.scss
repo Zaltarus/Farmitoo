@@ -1,0 +1,65 @@
+.tunnel-total-container {
+    width: 30%;
+
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .tunnel-total {
+        padding: 1rem;
+        background-color: $white;
+        box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+        .title {
+            margin-bottom: 0.6rem;
+        }
+
+        .total-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.6rem;
+            &:nth-last-child(1) {
+                margin-bottom: 0;
+            }
+
+            .total-text {
+                font-size: $size-12;
+            }
+
+            .total-amount {
+                font-size: $size-10;
+                font-weight: 800;
+
+                .price {
+                    color: $light-black;
+                    &.total-amount-discount {
+                        color: $light-red;
+                    }
+                }
+            }
+
+            &.total-row-final {
+                .total-text,
+                .total-amount {
+                    font-size: $size-7;
+                }
+            }
+        }
+
+        .total-delivery {
+
+        }
+
+        .total-final,
+        .total-delivery {
+            padding-top: 0.6rem;
+            border-top: 1px solid $light-grey;
+        }
+
+        .button {
+            width: 100%;
+            margin-top: 1rem;
+        }
+    }
+}

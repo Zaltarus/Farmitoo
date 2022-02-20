@@ -1,0 +1,22 @@
+.page-tunnel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem 0;
+
+    @include media-breakpoint-down(sm) {
+        padding: 1rem;
+    }
+
+    .title {
+        color: $dark-blue;
+    }
+
+    .tunnel-detail {
+        width: 68%;
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+        }
+    }
+}

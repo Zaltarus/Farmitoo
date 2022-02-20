@@ -1,0 +1,41 @@
+.page-tunnel-basket {
+    flex-wrap: wrap;
+    .title {
+        width: 100%;
+        &.title--medium {
+            margin-bottom: 0.5em;
+        }
+    }
+}
+.basket-container-products {
+    .product-little {
+        display: flex;
+        flex-wrap: wrap;
+        &:nth-last-child(1) {
+            margin-bottom: 0;
+        }
+
+        @include media-breakpoint-down(lg) {
+            .infos {
+                width: 75%;
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            .infos {
+                width: 70%;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            .image {
+                width: 100%;
+                margin-bottom: 0.4rem;
+                max-height: 120px;
+            }
+            .infos {
+                width: 100%;
+            }
+        }
+    }
+}

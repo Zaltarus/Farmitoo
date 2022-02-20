@@ -1,0 +1,33 @@
+html {
+    height: 100%;
+}
+div,span,p {
+    box-sizing: border-box;
+}
+body {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0;
+    margin : 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: $background-page;
+}
+
+.page-content-container {
+    width: 80%;
+    flex: 1 0 auto;
+    color: $light-black;
+    @include media-breakpoint-down(lg) {
+        width: 100%;
+    }
+
+    .page-content {
+        @include media-breakpoint-down(lg) {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+}
